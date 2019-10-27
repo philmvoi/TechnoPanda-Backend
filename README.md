@@ -2,6 +2,8 @@
 
 Hola.
 
+Stack: Sequelize, Graphql & mysql
+
 To launch the server:
   - run the 'yarn install' command in the terminal (for mac), or command line (for windows)
   - open the models directory and then navigate to the index.js file
