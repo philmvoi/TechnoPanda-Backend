@@ -11,5 +11,6 @@ type Query {
 
 type Mutation {
     createState(state_name: String!): State!
+    updateState(state_id: Int, state_name: String): State
 }
 `;
