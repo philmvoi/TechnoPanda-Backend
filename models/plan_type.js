@@ -4,15 +4,15 @@ export default (sequelize, DataTypes) => {
     plan_type_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     plan_type: {
       type: DataTypes.STRING(20),
       allowNull: false
     }
-  }, {
-    tableName: 'plan_type'
-  });
+  }
+);
 
   return PlanType;
 };

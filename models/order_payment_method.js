@@ -4,15 +4,15 @@ export default (sequelize, DataTypes) => {
     order_payment_method_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     order_payment_method: {
       type: DataTypes.STRING(20),
       allowNull: false
     }
-  }, {
-    tableName: 'order_payment_method'
-  });
+  }
+);
 
   return Opm;
 };
