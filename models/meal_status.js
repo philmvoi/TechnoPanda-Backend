@@ -5,14 +5,14 @@ export default (sequelize, DataTypes) => {
     meal_status_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     meal_status: {
       type: DataTypes.STRING(20),
       allowNull: false
     }
-  }, {
-    tableName: 'meal_status'
-  });
+  }
+);
    return MealStat;
 };

@@ -4,7 +4,8 @@ export default (sequelize, DataTypes) => {
     customer_status_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     customer_status: {
       type: DataTypes.STRING(20),

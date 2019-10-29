@@ -3,15 +3,15 @@ export default (sequelize, DataTypes) => {
     order_fulfillment_method_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     order_fulfillement_method: {
       type: DataTypes.STRING(20),
       allowNull: false
     }
-  }, {
-    tableName: 'order_fulfillment_method'
-  });
+  }
+);
 
   return Ofm;
 };
