@@ -11,5 +11,6 @@ type Query {
 
 type Mutation {
     createPlanType(plan_type: String!): PlanType!
+    updatePlanType(plan_type_id: Int, plan_type: String): PlanType
 }
 `;

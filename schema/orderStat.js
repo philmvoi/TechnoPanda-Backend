@@ -11,5 +11,6 @@ type Query {
 
 type Mutation {
     createOrderStat(order_status: String!): OrderStat!
+    updateOrderStat(order_status_id: Int, order_status: String): OrderStat
 }
 `;

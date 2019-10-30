@@ -11,5 +11,6 @@ type Query {
 
 type Mutation {
     createIngStat(ingredient_status: String!): IngStat!
+    updateIngStat(ingredient_status_id: Int, ingredient_status: String): IngStat
 }
 `;

@@ -7,5 +7,12 @@ export default {
 
     Mutation: {
         createPlanType: (parent, args, {models}) => models.PlanType.create(args),
+        async updatePlanType(_, { plan_type_id, plan_type }, {models}) {
+            const planType = await models.PlanType.findByPk(plan_type_id);
+            await planType.update({
+                plan_type,
+            });
+                return planType;
+            },
     },
 };

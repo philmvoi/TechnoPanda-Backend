@@ -11,5 +11,6 @@ type Query {
 
 type Mutation {
     createMealCat(description_: String!): MealCat!
+    updateMealCat(meal_category_id: Int, description_: String): MealCat
 }
 `;

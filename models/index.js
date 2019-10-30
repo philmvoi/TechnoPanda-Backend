@@ -10,19 +10,20 @@ const sequelize = new Sequelize ('capstone_schema', 'root', 'qpalzm10', {
 });
 
 const models = {
-    //Create & Read Implemented
+    //Update Implemented
     CustStat: sequelize.import('./customer_status'),
     State: sequelize.import('./state'),
-    Customer: sequelize.import('./customer'),
     IngStat: sequelize.import('./ingredient_status'),
     MealCat: sequelize.import('./meal_category'),
-    MealStat: sequelize.import('./meal_status'),
     Opm: sequelize.import('./order_payment_method'),
     OrderStat: sequelize.import('./order_status'),
     PackStat: sequelize.import('./package_status'),
     PlanType: sequelize.import('./plan_type'),
     ProType: sequelize.import('./protein_type'),
     Ofm: sequelize.import('./order_fulfillment_method'),
+
+    //Create & Read Implemented
+    Customer: sequelize.import('./customer'),    MealStat: sequelize.import('./meal_status'),
 
     //Not Implemented
     // IngList: sequelize.import('./ingredient_list'),

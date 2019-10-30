@@ -7,5 +7,12 @@ export default {
 
     Mutation: {
         createOfm: (parent, args, {models}) => models.Ofm.create(args),
+        async updateOfm(_, { order_fulfillment_method_id, order_fulfillement_method }, {models}) {
+            const ofm = await models.Ofm.findByPk(order_fulfillment_method_id);
+            await ofm.update({
+                order_fulfillement_method,
+            });
+                return ofm;
+            },
     },
 };

@@ -11,5 +11,6 @@ type Query {
 
 type Mutation {
     createPackStat(package_status: String!): PackStat!
+    updatePackStat(package_status_id: Int, package_status: String): PackStat
 }
 `;
