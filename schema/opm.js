@@ -11,5 +11,6 @@ type Query {
 
 type Mutation {
     createOpm(order_payment_method: String!): Opm!
+    updateOpm(order_payment_method_id: Int, order_payment_method: String): Opm
 }
 `;

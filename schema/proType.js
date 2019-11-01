@@ -11,5 +11,6 @@ type Query {
 
 type Mutation {
     createProType(protein_type: String!): ProType!
+    updateProType(protein_type_id: Int, protein_type: String): ProType
 }
 `;

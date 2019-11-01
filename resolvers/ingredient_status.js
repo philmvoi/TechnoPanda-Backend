@@ -7,5 +7,12 @@ export default {
 
     Mutation: {
         createIngStat: (parent, args, {models}) => models.IngStat.create(args),
+        async updateIngStat(_, { ingredient_status_id, ingredient_status }, {models}) {
+            const ingStat = await models.IngStat.findByPk(ingredient_status_id);
+            await ingStat.update({
+                ingredient_status,
+            });
+                return ingStat;
+            },
     },
 };

@@ -14,4 +14,11 @@ To launch the server:
 If it runs....Tremendous!!!
 if not hmu
 
+# To test update fubctionality
 
+mutation {
+	updateState(state_id:3, state_name: "iowa") {
+    state_name,
+    state_id
+  }
+}

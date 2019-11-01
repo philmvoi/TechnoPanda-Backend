@@ -7,5 +7,12 @@ export default {
 
     Mutation: {
         createCustStat: (parent, args, {models}) => models.CustStat.create(args),
-    },
+        async updateCustStat(_, { customer_status_id, customer_status }, {models}) {
+            const custStat = await models.CustStat.findByPk(customer_status_id);
+            await custStat.update({
+                customer_status,
+            });
+                return custStat;
+            },
+    }
 };
