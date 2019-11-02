@@ -30,8 +30,6 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.FLOAT,
       allowNull: true
     }
-  }, {
-    tableName: 'order_line'
   });
 
 

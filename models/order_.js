@@ -5,7 +5,8 @@ export default (sequelize, DataTypes) =>  {
     order_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     customer_id: {
       type: DataTypes.INTEGER(11),
@@ -92,10 +93,9 @@ export default (sequelize, DataTypes) =>  {
   });
 
   Order.associate = (models) => {
-    Order.belongsTo(models.Customer, {
-      foreignKey: {
-        name: 'customerId',
-        field: 'customer_id',}
+    Order.belongsTo(models.Customer, {as: 'Customer'}, {
+      foreignKey: 'customer_id',
+        targetKey: 'customer_id'
     });
 
     Order.belongsTo(models.OrderStat, {
@@ -122,13 +122,20 @@ export default (sequelize, DataTypes) =>  {
         field: 'plan_type_id',}
     });
 
-    Order.hasMany(models.Orderline);
+    Order.hasMany(models.Orderline, {
+      foreignKey: 'order_id'
+    });
+
+    Order.belongsToMany(models.Package, {
+      through: models.Orderline,
+      as: 'packages',
+      foreignKey: 'order_id',
+      otherKey: 'package_id'
+    });
+
   };
 
-  Order.belongsToMany(models.Package, {
-    through: models.Orderline,
-    as: 'packages'
-  });
+  
 
   return Order;
 };

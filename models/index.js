@@ -21,18 +21,23 @@ const models = {
     PlanType: sequelize.import('./plan_type'),
     ProType: sequelize.import('./protein_type'),
     Ofm: sequelize.import('./order_fulfillment_method'),
+    Customer: sequelize.import('./customer'),    
+    Order: sequelize.import('./order_'),
 
     //Create & Read Implemented
-    Customer: sequelize.import('./customer'),    MealStat: sequelize.import('./meal_status'),
+    
+    MealStat: sequelize.import('./meal_status'),
 
     //Not Implemented
+
+    
     // IngList: sequelize.import('./ingredient_list'),
     // MealList: sequelize.import('./meal_list'),
     // Ingredient: sequelize.import('./ingredient'),
     // Meal: sequelize.import('./meal'),
-    // Order: sequelize.import('./order_'),
-    // OrderLine: sequelize.import('./order_line'),
-    // Package: sequelize.import('./package'),
+    
+    Orderline: sequelize.import('./order_line'),
+    Package: sequelize.import('./package'),
 };
 
 Object.keys(models).forEach((modelName) => {

@@ -3,7 +3,8 @@ export default (sequelize, DataTypes) => {
     customer_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true,
     },
     state_id: {
       type: DataTypes.INTEGER(11),
@@ -67,8 +68,6 @@ export default (sequelize, DataTypes) => {
     }
 
   
-  }, {
-    tableName: 'customer'
   });
 
   Customer.associate = (models) => {
@@ -84,6 +83,10 @@ export default (sequelize, DataTypes) => {
         field:'state_id',}
     });
   
+    Customer.hasMany(models.Order, {as: 'Orders'}, {
+      foreignKey: 'customer_id',
+      targetKey: 'customer_id'
+    });
   };
 
   return Customer;

@@ -4,7 +4,8 @@ export default (sequelize, DataTypes) => {
     package_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoincrement: true
     },
     package_status_id: {
       type: DataTypes.INTEGER(11),
@@ -35,6 +36,15 @@ export default (sequelize, DataTypes) => {
       foreignKey: {
         name: 'packageId',
         field: 'package_id',}
+    });
+
+    Package.hasMany(models.Orderline);
+
+    Package.belongsToMany(models.Order, {
+      through: models.Orderline,
+      as: 'orders',
+      foreignKey: 'package_id',
+      otherKey: 'order_id'
     });
   };
 

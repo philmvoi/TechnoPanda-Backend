@@ -1,19 +1,46 @@
 export default `
 type Customer {
-    customerId: Int!
-    state: State!
-    custStat: CustStat!
-    customerPhoneNumber: Int!
-    customerFirstName: String!
-    customerLastName: String!
-    customerEmail: String
-    customerCity: String
-    customerStreetAddress: String
-    customerZipcode: String
+    customer_id: Int!
+    state_id: Int!
+    customer_status_id: Int!
+    customer_phone_number: String!
+    customer_first_name: String!
+    customer_last_name: String!
+    customer_email: String
+    customer_city: String
+    customer_street_address: String
+    customer_zipcode: String
     Height: String
     Weight: Float
     Allergies: String
     Instagram: String
+    Orders: [Order] 
 }
 
+input CustomerInput {
+    state_id: Int
+    customer_status_id: Int
+    customer_phone_number: String
+    customer_first_name: String
+    customer_last_name: String
+    customer_email: String
+    customer_city: String
+    customer_street_address: String
+    customer_zipcode: String
+    Height: String
+    Weight: Float
+    Allergies: String
+    Instagram: String
+}  
+
+
+type Query {
+    getCustomer(customer_id: Int!): Customer!
+    allCustomers: [Customer!]!
+}
+
+type Mutation {
+    createCustomer(input: CustomerInput): Customer!
+    updateCustomer(customer_id: Int!, input: CustomerInput): Customer
+}
 `;
