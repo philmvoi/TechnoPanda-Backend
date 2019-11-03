@@ -93,7 +93,7 @@ export default (sequelize, DataTypes) =>  {
   });
 
   Order.associate = (models) => {
-    Order.belongsTo(models.Customer, {as: 'Customer'}, {
+    Order.belongsTo(models.Customer, {
       foreignKey: 'customer_id',
         targetKey: 'customer_id'
     });

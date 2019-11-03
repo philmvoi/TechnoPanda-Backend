@@ -83,9 +83,8 @@ export default (sequelize, DataTypes) => {
         field:'state_id',}
     });
   
-    Customer.hasMany(models.Order, {as: 'Orders'}, {
-      foreignKey: 'customer_id',
-      targetKey: 'customer_id'
+    Customer.hasMany(models.Order, {
+      foreignKey: 'customer_id'
     });
   };
 

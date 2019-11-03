@@ -2,7 +2,9 @@
 export default {
     Query: {
         getState: (parent, {state_id}, {models}) => models.State.findOne({where: {state_id} }),
-        async allStates(parent, args, {models}) {  return await models.State.findAll()}
+        allStates: (parent, args, {models}) =>  models.State.findAll(),
+        // allState(parent, args, {models}) {  return await models.State.findAll()}
+
 
     },
 

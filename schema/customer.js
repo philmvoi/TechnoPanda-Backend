@@ -11,14 +11,30 @@ type Customer {
     customer_street_address: String
     customer_zipcode: String
     Height: String
-    Weight: Float
+    Weight: String
     Allergies: String
     Instagram: String
-    Orders: [Order] 
+}
+
+type CustomerReturn {
+    customer_id: Int!
+    state_id: Int!
+    state_name: String!
+    customer_phone_number: String!
+    customer_first_name: String!
+    customer_last_name: String!
+    customer_email: String
+    customer_city: String
+    customer_street_address: String
+    customer_zipcode: String
+    Height: String
+    Weight: String
+    Allergies: String
+    Instagram: String
 }
 
 input CustomerInput {
-    state_id: Int
+    state_id: Int!
     customer_status_id: Int
     customer_phone_number: String
     customer_first_name: String
@@ -28,7 +44,7 @@ input CustomerInput {
     customer_street_address: String
     customer_zipcode: String
     Height: String
-    Weight: Float
+    Weight: String
     Allergies: String
     Instagram: String
 }  
@@ -36,7 +52,7 @@ input CustomerInput {
 
 type Query {
     getCustomer(customer_id: Int!): Customer!
-    allCustomers: [Customer!]!
+    allCustomers: [CustomerReturn!]!
 }
 
 type Mutation {

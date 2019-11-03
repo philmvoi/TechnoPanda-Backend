@@ -4,10 +4,13 @@ type State {
     state_name: String!
 }
 
+
 type Query {
     getState(state_id: Int!): State!
     allStates: [State!]!
 }
+
+
 
 type Mutation {
     createState(state_name: String!): State!
