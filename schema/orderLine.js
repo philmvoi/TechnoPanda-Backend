@@ -10,7 +10,8 @@ type OrderLine {
 type OrderLineReturn{
     order_line_id: Int!
     order_id: Int!
-    package_id: Int!
+    package_name: String!
+    package_description: String!
     order_line_quantity: Int!
     price: String
 }
@@ -25,6 +26,7 @@ input OrderLineInput{
 type Query {
     getOrderLine(order_line_id: Int!): OrderLine!
     allOrderLine: [OrderLineReturn!]!
+    allOrderOrderLines: [OrderLineReturn]
 }
 
 type Mutation {
