@@ -4,7 +4,8 @@ export default (sequelize, DataTypes) => {
     order_line_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     order_id: {
       type: DataTypes.INTEGER(11),
@@ -33,18 +34,18 @@ export default (sequelize, DataTypes) => {
   });
 
 
-  Orderline.associate = (models) => {
-    Orderline.belongsTo(models.Package, {
-      foreignKey: {
-        name: 'packageId',
-        field: 'package_id',}
-    });
+  // Orderline.associate = (models) => {
+  //   Orderline.belongsTo(models.Package, {
+  //     foreignKey: {
+  //       name: 'packageId',
+  //       field: 'package_id',}
+  //   });
 
-    Orderline.belongsTo(models.Order, {
-      foreignKey: {
-        name: 'OrderId',
-        field: 'order_id',}
-    });
-  };
+  //   Orderline.belongsTo(models.Order, {
+  //     foreignKey: {
+  //       name: 'OrderId',
+  //       field: 'order_id',}
+  //   });
+  // };
     return Orderline;
 };

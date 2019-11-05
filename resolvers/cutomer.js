@@ -43,8 +43,6 @@ export default {
                 Instagram,
             });
                 return customer;
-            },
-
+            }
     }
-
 };

@@ -5,7 +5,7 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
-      autoincrement: true
+      autoIncrement: true
     },
     package_status_id: {
       type: DataTypes.INTEGER(11),
@@ -31,22 +31,22 @@ export default (sequelize, DataTypes) => {
     tableName: 'package'
   });
 
-  Package.associate = (models) => {
-    Package.belongsTo(models.PackStat, {
-      foreignKey: {
-        name: 'packageId',
-        field: 'package_id',}
-    });
+  // Package.associate = (models) => {
+  //   Package.belongsTo(models.PackStat, {
+  //     foreignKey: {
+  //       name: 'packageId',
+  //       field: 'package_id',}
+  //   });
 
-    Package.hasMany(models.Orderline);
+  //   Package.hasMany(models.Orderline);
 
-    Package.belongsToMany(models.Order, {
-      through: models.Orderline,
-      as: 'orders',
-      foreignKey: 'package_id',
-      otherKey: 'order_id'
-    });
-  };
+  //   Package.belongsToMany(models.Order, {
+  //     through: models.Orderline,
+  //     as: 'orders',
+  //     foreignKey: 'package_id',
+  //     otherKey: 'order_id'
+  //   });
+  // };
 
   return Package;
 };

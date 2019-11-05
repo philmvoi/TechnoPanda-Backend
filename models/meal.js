@@ -4,7 +4,8 @@ export default (sequelize, DataTypes) => {
     meal_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     meal_status_id: {
       type: DataTypes.INTEGER(11),
@@ -46,32 +47,32 @@ export default (sequelize, DataTypes) => {
     tableName: 'meal'
   });
 
-  Meal.associate = (models) => {
-    Meal.belongsTo(models.MealStat, {
-      foreignKey: {
-        name: 'mealStatusId',
-        field: 'meal_status_id',}
-    });
+  // Meal.associate = (models) => {
+  //   Meal.belongsTo(models.MealStat, {
+  //     foreignKey: {
+  //       name: 'mealStatusId',
+  //       field: 'meal_status_id',}
+  //   });
 
-    Meal.belongsTo(models.MealCat, {
-      foreignKey: {
-        name: 'mealCategoryId',
-        field: 'meal_category_id',}
-    });
+  //   Meal.belongsTo(models.MealCat, {
+  //     foreignKey: {
+  //       name: 'mealCategoryId',
+  //       field: 'meal_category_id',}
+  //   });
 
-    Meal.belongsTo(models.ProType, {
-      foreignKey: {
-        name: 'proteinTypeId',
-        field: 'protein_type_id',}
-    });
+  //   Meal.belongsTo(models.ProType, {
+  //     foreignKey: {
+  //       name: 'proteinTypeId',
+  //       field: 'protein_type_id',}
+  //   });
 
-    Meal.hasMany(models.IngList);
-  };
+  //   Meal.hasMany(models.IngList);
+  // };
 
-  Meal.belongsToMany(models.Ingredient, {
-    through: models.IngList,
-    as: 'ingredients'
-  });
+  // Meal.belongsToMany(models.Ingredient, {
+  //   through: models.IngList,
+  //   as: 'ingredients'
+  // });
 
   return Meal;
 };

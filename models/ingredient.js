@@ -4,7 +4,8 @@ export default (sequelize, DataTypes) =>  {
     ingredient_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     ingredient_status_id: {
       type: DataTypes.INTEGER(11),
@@ -22,22 +23,22 @@ export default (sequelize, DataTypes) =>  {
     tableName: 'ingredient'
   });
 
-  Ingredient.associate = (models) => {
-    Ingredient.belongsTo(models.IngStat, {
-      foreignKey: {
-        name: 'ingredientStatusId',
-        field: 'ingredient_status_id',}
-    });
+  // Ingredient.associate = (models) => {
+  //   Ingredient.belongsTo(models.IngStat, {
+  //     foreignKey: {
+  //       name: 'ingredientStatusId',
+  //       field: 'ingredient_status_id',}
+  //   });
 
-    Ingredient.hasMany(models.IngList);
+  //   Ingredient.hasMany(models.IngList);
 
-    Ingredients.belongsToMany(models.Meal, {
-      through: models.IngList,
-      as: 'meals'
-    });
+  //   Ingredients.belongsToMany(models.Meal, {
+  //     through: models.IngList,
+  //     as: 'meals'
+  //   });
 
   
-  }
+  // }
 
   return Ingredient;
 };

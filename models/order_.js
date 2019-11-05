@@ -92,50 +92,47 @@ export default (sequelize, DataTypes) =>  {
     tableName: 'order_'
   });
 
-  Order.associate = (models) => {
-    Order.belongsTo(models.Customer, {
-      foreignKey: 'customer_id',
-        targetKey: 'customer_id'
-    });
+  // Order.associate = (models) => {
+  //   Order.belongsTo(models.Customer, {
+  //     foreignKey: 'customer_id',
+  //       targetKey: 'customer_id'
+  //   });
 
-    Order.belongsTo(models.OrderStat, {
-      foreignKey: {
-        name: 'orderStatusId',
-        field: 'order_status_id',}
-    });
+  //   Order.belongsTo(models.OrderStat, {
+  //     foreignKey: {
+  //       name: 'orderStatusId',
+  //       field: 'order_status_id',}
+  //   });
 
-    Order.belongsTo(models.Opm, {
-      foreignKey: {
-        name: 'orderPaymentMethodId',
-        field: 'order_payment_method_id',}
-    });
+  //   Order.belongsTo(models.Opm, {
+  //     foreignKey: {
+  //       name: 'orderPaymentMethodId',
+  //       field: 'order_payment_method_id',}
+  //   });
 
-    Order.belongsTo(models.Ofm, {
-      foreignKey: {
-        name: 'orderFulfillmentMethodId',
-        field: 'order_fulfillment_method_id',}
-    });
+  //   Order.belongsTo(models.Ofm, {
+  //     foreignKey: {
+  //       name: 'orderFulfillmentMethodId',
+  //       field: 'order_fulfillment_method_id',}
+  //   });
 
-    Order.belongsTo(models.PlanType, {
-      foreignKey: {
-        name: 'planTypeId',
-        field: 'plan_type_id',}
-    });
+  //   Order.belongsTo(models.PlanType, {
+  //     foreignKey: {
+  //       name: 'planTypeId',
+  //       field: 'plan_type_id',}
+  //   });
 
-    Order.hasMany(models.Orderline, {
-      foreignKey: 'order_id'
-    });
+  //   Order.hasMany(models.Orderline, {
+  //     foreignKey: 'order_id'
+  //   });
 
-    Order.belongsToMany(models.Package, {
-      through: models.Orderline,
-      as: 'packages',
-      foreignKey: 'order_id',
-      otherKey: 'package_id'
-    });
+  //   Order.belongsToMany(models.Package, {
+  //     through: models.Orderline,
+  //     as: 'packages',
+  //     foreignKey: 'order_id',
+  //     otherKey: 'package_id'
+  //   });
 
-  };
-
-  
-
+  // };
   return Order;
 };

@@ -70,23 +70,23 @@ export default (sequelize, DataTypes) => {
   
   });
 
-  Customer.associate = (models) => {
-    Customer.belongsTo(models.CustStat, {
-      foreignKey: {
-        name: 'customerStatusId',
-        field: 'customer_status_id',}
-    });
+  // Customer.associate = (models) => {
+  //   Customer.belongsTo(models.CustStat, {
+  //     foreignKey: {
+  //       name: 'customerStatusId',
+  //       field: 'customer_status_id',}
+  //   });
   
-    Customer.belongsTo(models.State, {
-      foreignKey: {
-        name: 'stateId',
-        field:'state_id',}
-    });
+  //   Customer.belongsTo(models.State, {
+  //     foreignKey: {
+  //       name: 'stateId',
+  //       field:'state_id',}
+  //   });
   
-    Customer.hasMany(models.Order, {
-      foreignKey: 'customer_id'
-    });
-  };
+  //   Customer.hasMany(models.Order, {
+  //     foreignKey: 'customer_id'
+  //   });
+  // };
 
   return Customer;
 };

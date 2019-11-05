@@ -1,5 +1,5 @@
 const Sequilize = require('sequelize');
-module.exports = new Sequilize('technopanda', 'root', 'Quietzone2018!', {
+module.exports = new Sequilize('capstone_schema', 'root', 'qpalzm10', {
   host: 'localhost',
   dialect: 'mysql',
   insecureAuth: true,

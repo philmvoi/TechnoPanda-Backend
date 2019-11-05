@@ -1,10 +1,10 @@
-
 export default (sequelize, DataTypes) => {
   const MealList = sequelize.define('meal_list', {
     meal_list_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     meal_id: {
       type: DataTypes.INTEGER(11),
@@ -30,19 +30,19 @@ export default (sequelize, DataTypes) => {
     tableName: 'meal_list'
   });
 
-  MealList.associate = (models) => {
-    MealList.belongsTo(models.Package, {
-      foreignKey: {
-        name: 'packageId',
-        field: 'package_id',}
-    });
+  // MealList.associate = (models) => {
+  //   MealList.belongsTo(models.Package, {
+  //     foreignKey: {
+  //       name: 'packageId',
+  //       field: 'package_id',}
+  //   });
 
-    MealList.belongsTo(models.Meal, {
-      foreignKey: {
-        name: 'mealId',
-        field: 'meal_id',}
-    });
-  };
+  //   MealList.belongsTo(models.Meal, {
+  //     foreignKey: {
+  //       name: 'mealId',
+  //       field: 'meal_id',}
+  //   });
+  // };
 
   return MealList;
 
