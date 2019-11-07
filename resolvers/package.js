@@ -3,10 +3,8 @@ import { sequelize } from "../models";
 export default {
     Query: {
         getPackage: (root, {package_id}, {models}) => models.Package.findOne({where: {package_id} }),
-        async allPackage(root) {return sequelize.query(
-            "SELECT package_id, ",
-            {raw: true, type: sequelize.QueryTypes.SELECT}
-        )}
+        allPackage: (parent, args, {models}) =>  models.Package.findAll(),
+ 
 
     },
 
