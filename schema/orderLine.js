@@ -14,10 +14,11 @@ type OrderLineReturn{
     package_description: String!
     order_line_quantity: Int!
     price: String
+    package_id: Int
 }
 
 input OrderLineInput{
-    order_id: Int!
+    order_id: Int
     package_id: Int!
     order_line_quantity: String!
     price: String

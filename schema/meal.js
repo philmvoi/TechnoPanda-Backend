@@ -30,7 +30,7 @@ input MealInput{
 
 type Query {
     getMeal(meal_id: Int!): Meal!
-    allMeal: [MealReturn!]!
+    allMeal: [Meal]!
 }
 
 type Mutation {

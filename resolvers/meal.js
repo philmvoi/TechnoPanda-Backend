@@ -3,10 +3,11 @@ import { sequelize } from "../models";
 export default {
     Query: {
         getMeal: (root, {meal_id}, {models}) => models.Meal.findOne({where: {meal_id} }),
-        async allMeal(root) {return sequelize.query(
-            "SELECT meal_id, ",
-            {raw: true, type: sequelize.QueryTypes.SELECT}
-        )}
+        allMeal: (parent, args, {models}) =>  models.Meal.findAll(),
+        // async allMeal(root) {return sequelize.query(
+        //     "SELECT meal_id, ",
+        //     {raw: true, type: sequelize.QueryTypes.SELECT}
+        // )}
 
     },
 
