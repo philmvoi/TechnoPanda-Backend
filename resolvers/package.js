@@ -26,6 +26,16 @@ export default {
                 meal_quantity
             });
             return pckage
-        }
+        },
+        async deletePackage(_, {package_id}, {models}) {
+
+            const pckage = await models.Package.findByPk(package_id);
+            await pckage.update({
+                package_status_id: 1,
+            });
+            return pckage
+        },
+
     }
 };
+

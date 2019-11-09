@@ -19,6 +19,14 @@ export default {
                 ingredient_name
             });
             return ingredient
+        },
+        async deleteIngredient(_, { ingredient_id}, {models}) {
+            const ingredient = await models.Ingredient.findByPk(ingredient_id);
+            await ingredient.update({
+                ingredient_status_id: 1
+            });
+            return ingredient
         }
     }
 };
+

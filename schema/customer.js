@@ -58,5 +58,6 @@ type Query {
 type Mutation {
     createCustomer(input: CustomerInput): Customer!
     updateCustomer(customer_id: Int!, input: CustomerInput): Customer
+    deleteCustomer(customer_id: Int!): Customer
 }
 `;

@@ -23,5 +23,6 @@ type Query {
 type Mutation {
     createIngredient(input: IngredientInput): Ingredient!
     updateIngredient(ingredient_id: Int!, input: IngredientInput): Ingredient
+    deleteIngredient(ingredient_id: Int!): Ingredient!
 }
 `;

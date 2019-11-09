@@ -43,6 +43,13 @@ export default {
                 Instagram,
             });
                 return customer;
-            }
+            },
+            async deleteCustomer(_, { customer_id }, {models}) {
+                const customer = await models.Customer.findByPk(customer_id);
+                await customer.update({
+                    customer_status_id: 2,
+                });
+                    return customer;
+                },
     }
 };

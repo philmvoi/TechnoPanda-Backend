@@ -30,5 +30,6 @@ type Query {
 type Mutation {
     createPackage(input: PackageInput): PackageReturn!
     updatePackage(package_id: Int!, input: PackageInput): Package
+    deletePackage(package_id: Int!): Package
 }
 `;

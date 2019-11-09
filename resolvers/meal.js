@@ -29,6 +29,14 @@ export default {
                 additional_protein_oz
             });
             return meal
-        }
+        },
+        async deleteMeal(_, {meal_id}, {models}) {
+
+            const meal = await models.Meal.findByPk(meal_id);
+            await meal.update({
+                meal_status_id: 1
+            });
+            return meal
+        },
     }
 };

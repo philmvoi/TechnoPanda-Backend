@@ -38,5 +38,6 @@ type Query {
 type Mutation {
     createMeal(input: MealInput): Meal!
     updateMeal(meal_id: Int!, input: MealInput): Meal
+    deleteMeal(meal_id: Int!): Meal
 }
 `;
