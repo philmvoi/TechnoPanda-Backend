@@ -3,7 +3,10 @@ import { sequelize } from "../models";
 export default {
     Query: {
         getPackage: (root, {package_id}, {models}) => models.Package.findOne({where: {package_id} }),
-        allPackage: (parent, args, {models}) =>  models.Package.findAll(),
+        async allPackage(root) {return sequelize.query(
+            "SELECT package_id, package_name, package_description, meal_quantity FROM package WHERE package_status_id= 2 ORDER BY package_id DESC ",
+            {raw: true, type: sequelize.QueryTypes.SELECT}
+        )}
  
 
     },

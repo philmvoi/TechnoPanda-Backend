@@ -9,10 +9,13 @@ type IngListReturn{
     ingredient_list_id: Int!
     meal_id: Int!
     ingredient_id: Int!
+    ingredient_name: String
+    meal_name: String
+
 }
 
 input IngListInput{
-    meal_id: Int!
+    meal_id: Int
     ingredient_id: Int!
 }
 
