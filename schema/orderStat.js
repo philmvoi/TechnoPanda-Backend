@@ -1,7 +1,7 @@
 export default `
 type OrderStat {
-    order_status_id: Int!
-    order_status: String!
+    order_status_id: Int
+    order_status: String
 }
 
 type OrderStatReturn {
@@ -16,5 +16,6 @@ type Query {
 type Mutation {
     createOrderStat(order_status: String!): OrderStat!
     updateOrderStat(order_status_id: Int, order_status: String): OrderStat
+    deleteOrderStat(order_status_id: Int!): OrderStat
 }
 `;

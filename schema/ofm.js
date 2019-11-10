@@ -1,7 +1,7 @@
 export default `
 type Ofm {
-    order_fulfillment_method_id: Int!
-    order_fulfillement_method: String!
+    order_fulfillment_method_id: Int
+    order_fulfillement_method: String
 }
 
 type Query {
@@ -12,5 +12,6 @@ type Query {
 type Mutation {
     createOfm(order_fulfillement_method: String!): Ofm!
     updateOfm(order_fulfillment_method_id: Int, order_fulfillement_method: String): Ofm
+    deleteOfm(order_fulfillment_method_id: Int!): Ofm
 }
 `;

@@ -14,5 +14,7 @@ export default {
             });
                 return opm;
             },
+        deleteOpm: (parent, {order_payment_method_id}, {models}) => models.Opm.destroy({where: {order_payment_method_id}}),
+   
     },
 };

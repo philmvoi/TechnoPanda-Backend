@@ -1,6 +1,6 @@
 export default `
 type CustStat {
-    customer_status_id: Int!
+    customer_status_id: Int
     customer_status: String!
 }
 
@@ -12,5 +12,6 @@ type Query {
 type Mutation {
     createCustStat(customer_status: String!): CustStat!
     updateCustStat(customer_status_id: Int, customer_status: String): CustStat
+    deleteCustStat(customer_status_id: Int!): CustStat
 }
 `;

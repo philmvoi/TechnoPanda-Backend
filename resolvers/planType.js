@@ -14,5 +14,7 @@ export default {
             });
                 return planType;
             },
+        deletePlan: (parent, {plan_type_id}, {models}) => models.PlanType.destroy({where: {plan_type_id}}),
+   
     },
 };

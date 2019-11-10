@@ -17,5 +17,7 @@ export default {
             });
                 return orderStat;
             },
+            deleteOrderStat: (parent, {order_status_id}, {models}) => models.OrderStat.destroy({where: {order_status_id}}),
+   
     },
 };

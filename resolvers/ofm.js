@@ -14,5 +14,7 @@ export default {
             });
                 return ofm;
             },
+        deleteOfm: (parent, {order_fulfillment_method_id}, {models}) => models.Ofm.destroy({where: {order_fulfillment_method_id}}),
+
     },
 };

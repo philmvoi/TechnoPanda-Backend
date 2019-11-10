@@ -1,7 +1,7 @@
 export default {
     Query: {
-        getCustStat: (parent, {customer_status_id}, {models}) => models.CustStat.findOne({where: {customer_status_id} }),
-        allCustStat: (parent, args, {models}) => models.CustStat.findAll()
+        getCustStat: (parent, {}, {models}) => models.CustStat.findOne({where: {customer_status_id} }),
+        allCustStat: (parent, args, {models}) => models.CustStat.findAll(),
 
     },
 
@@ -14,5 +14,7 @@ export default {
             });
                 return custStat;
             },
+            deleteCustStat: (parent, {customer_status_id}, {models}) => models.CustStat.destroy({where: {customer_status_id}}),
+
     }
 };
