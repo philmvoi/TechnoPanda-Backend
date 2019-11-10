@@ -15,6 +15,7 @@ export default {
     
     Mutation: {
         createOrderLine: (parent, {input}, {models}) => models.Orderline.create(input),
+        deleteOrderLine: (parent, {order_line_id}, {models}) => models.Orderline.destroy({where: {order_line_id}}),
         async updateOrderLine(_, {input, order_line_id}, {models}) {
             const {
                     package_id,
@@ -27,6 +28,7 @@ export default {
                 price
             });
             return orderLine
-        }
+        },
+
     }
 };

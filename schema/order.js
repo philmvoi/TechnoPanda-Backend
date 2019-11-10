@@ -73,5 +73,6 @@ type Query {
 type Mutation {
     createOrder(input: OrderInput): Order!
     updateOrder(order_id: Int!, input: OrderInput): Order
+    deleteOrder(order_id: Int!): Order
 }
 `;

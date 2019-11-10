@@ -51,7 +51,16 @@ export default {
             });
                 return order;
             },
+            async deleteOrder(_, {order_id}, {models}) {
+    
+                const order = await models.Order.findByPk(order_id);
+                await order.update({
+                    order_status_id: 1
+                });
+                    return order;
+                },
 
     }
 
 };
+

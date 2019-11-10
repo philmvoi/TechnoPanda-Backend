@@ -1,8 +1,11 @@
+import { sequelize } from "../models/index";
 export default {
     Query: {
         getOrderStat: (parent, {order_status_id}, {models}) => models.OrderStat.findOne({where: {order_status_id} }),
-        allOrderStat: (parent, args, {models}) => models.OrderStat.findAll()
-
+        async allOrderStat(root) {return sequelize.query(
+            "SELECT order_status_id, order_status FROM order_status WHERE order_status_id <> 1",
+             {raw: true, type: sequelize.QueryTypes.SELECT}
+         )}
     },
 
     Mutation: {

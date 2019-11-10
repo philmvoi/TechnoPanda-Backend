@@ -1,4 +1,4 @@
-import { sequelize } from "../models";
+import models, { sequelize } from "../models";
 
 export default {
     Query: {
@@ -12,6 +12,7 @@ export default {
 
     Mutation: {
         createIngList: (parent, {input}, {models}) => models.IngList.create(input),
+        deleteIngList: (parent, {ingredient_list_id}, {models}) => models.IngList.destroy({where: {ingredient_list_id}}),
         async updateIngList(_, {input, ingredient_list_id}, {models}) {
             const {ingredient_id,
                     meal_id} = input;

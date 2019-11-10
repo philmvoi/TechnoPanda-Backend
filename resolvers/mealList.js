@@ -16,6 +16,7 @@ export default {
 
     Mutation: {
         createMealList: (parent, {input}, {models}) => models.MealList.create(input),
+        deleteMealList: (parent, {meal_list_id}, {models}) => models.MealList.destroy({where: {meal_list_id}}),
         async updateMealList(_, {input, meal_list_id}, {models}) {
             const {meal_id,
                     meal_list_quantity} = input;

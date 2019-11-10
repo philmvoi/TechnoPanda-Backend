@@ -1,9 +1,9 @@
 export default `
 type OrderLine {
-    order_line_id: Int!
-    order_id: Int!
-    package_id: Int!
-    order_line_quantity: Int!
+    order_line_id: Int
+    order_id: Int
+    package_id: Int
+    order_line_quantity: Int
     price: String
 }
 
@@ -33,5 +33,6 @@ type Query {
 type Mutation {
     createOrderLine(input: OrderLineInput): OrderLine!
     updateOrderLine(order_line_id: Int!, input: OrderLineInput): OrderLine
+    deleteOrderLine(order_line_id: Int!): OrderLine
 }
 `;
