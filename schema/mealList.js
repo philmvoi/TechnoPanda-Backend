@@ -21,10 +21,26 @@ input MealListInput{
     meal_list_quantity: String!
 }
 
+type PopularMealReport {
+    meal_name: String!
+    frequency: Int!
+}
+
+type UpcomingMealInfo{
+    meal_id: Int!
+    package_name: String!
+    package_description: String!
+    meal_name: String!
+    meal_description: String!
+    additional_protein_oz: Int!
+}
+
 type Query {
     getMealList(meal_list_id: Int!): MealList!
     allMealList: [MealList!]!
     allMlJoin: [MealListReturn]!
+    popularMeal: [PopularMealReport]
+    upcomingMealInfo: [UpcomingMealInfo] 
 }
 
 type Mutation {

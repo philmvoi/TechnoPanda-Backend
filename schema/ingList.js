@@ -20,9 +20,24 @@ input IngListInput{
     ingredient_id: Int!
 }
 
+type PopularIngredientReport {
+    ingredient_name: String!
+    frequency: Int!
+}
+
+type UpcomingIngredient{
+    meal_id: Int!
+    ingredient_name: String!
+    meal_name: String!
+    meal_description: String!
+    additional_protein_oz: Int!
+}
+
 type Query {
     getIngList(ingredient_list_id: Int!): IngList!
     allIngList: [IngListReturn!]!
+    popularIngredients: [PopularIngredientReport]
+    upcomingIngredient: [UpcomingIngredient]
 }
 
 type Mutation {

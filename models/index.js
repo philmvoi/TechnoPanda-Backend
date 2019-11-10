@@ -1,6 +1,6 @@
 import Sequelize from 'sequelize';
 
-export const sequelize = new Sequelize ('technopanda', 'root', 'Quietzone2018!', {
+export const sequelize = new Sequelize ('capstone_schema', 'root', 'qpalzm10', {
     dialect: 'mysql',
     define: {
         underscored: true,
@@ -11,13 +11,13 @@ export const sequelize = new Sequelize ('technopanda', 'root', 'Quietzone2018!',
 
 const models = {
     //Update Implemented
-    CustStat: sequelize.import('./customer_status'),
+    CustStat: sequelize.import('./customer_status'),//logical table
     State: sequelize.import('./state'),
-    IngStat: sequelize.import('./ingredient_status'),
+    IngStat: sequelize.import('./ingredient_status'),//logical table
     MealCat: sequelize.import('./meal_category'),
     Opm: sequelize.import('./order_payment_method'),
-    OrderStat: sequelize.import('./order_status'),
-    PackStat: sequelize.import('./package_status'),
+    OrderStat: sequelize.import('./order_status'),//logical table
+    PackStat: sequelize.import('./package_status'),//logical table
     PlanType: sequelize.import('./plan_type'),
     ProType: sequelize.import('./protein_type'),
     Ofm: sequelize.import('./order_fulfillment_method'),
@@ -31,7 +31,7 @@ const models = {
     Package: sequelize.import('./package'),
     //Create & Read Implemented
     
-    MealStat: sequelize.import('./meal_status'),//no update
+    MealStat: sequelize.import('./meal_status'),//logical table
 };
 
 Object.keys(models).forEach((modelName) => {

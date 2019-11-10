@@ -49,11 +49,11 @@ export default (sequelize, DataTypes) =>  {
       }
     },
     order_received_date: {
-      type: DataTypes.DATEONLY,
+      type: DataTypes.DATE,
       allowNull: false
     },
     order_due_date: {
-      type: DataTypes.DATEONLY,
+      type: DataTypes.DATE,
       allowNull: false
     },
     order_delivery_street: {
@@ -69,7 +69,7 @@ export default (sequelize, DataTypes) =>  {
       allowNull: true
     },
     order_completed_date: {
-      type: DataTypes.DATEONLY,
+      type: DataTypes.DATE,
       allowNull: true
     },
     order_deliver_by: {

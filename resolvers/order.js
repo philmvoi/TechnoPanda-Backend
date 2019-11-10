@@ -6,9 +6,21 @@ export default {
     Query: {
         getOrder: (root, {order_id}, {models}) => models.Order.findOne({where: {order_id} }),
         async allOrders(root) { return sequelize.query(
- "SELECT  order_id, o.customer_id, customer_last_name, customer_phone_number, o.order_status_id, order_status, o.order_payment_method_id, order_payment_method, o.order_fulfillment_method_id, order_fulfillement_method, o.plan_type_id, plan_type, order_received_date, order_due_date, order_delivery_street, order_delivery_city, order_delivery_zipcode, order_completed_date, order_deliver_by, order_total_price, special_requirements, payment_amount FROM order_ o JOIN customer c ON o.customer_id = c.customer_id JOIN order_status os ON o.order_status_id = os.order_status_id JOIN order_payment_method opm ON o.order_payment_method_id = opm.order_payment_method_id JOIN order_fulfillment_method ofm ON o.order_fulfillment_method_id = ofm.order_fulfillment_method_id JOIN plan_type pt ON o.plan_type_id = pt.plan_type_id  WHERE (o.order_status_id != 1)",
-                        {raw: true, type: sequelize.QueryTypes.SELECT}
-                    )}
+            "SELECT order_id, o.customer_id, customer_last_name, customer_phone_number, o.order_status_id, order_status, o.order_payment_method_id, order_payment_method, o.order_fulfillment_method_id, order_fulfillement_method, o.plan_type_id, plan_type, order_received_date, order_due_date, order_delivery_street, order_delivery_city, order_delivery_zipcode, order_completed_date, order_deliver_by, order_total_price, special_requirements, payment_amount FROM order_ o JOIN customer c ON o.customer_id = c.customer_id JOIN order_status os ON o.order_status_id = os.order_status_id JOIN order_payment_method opm ON o.order_payment_method_id = opm.order_payment_method_id JOIN order_fulfillment_method ofm ON o.order_fulfillment_method_id = ofm.order_fulfillment_method_id JOIN plan_type pt ON o.plan_type_id = pt.plan_type_id  WHERE (o.order_status_id != 1)",
+            {raw: true, type: sequelize.QueryTypes.SELECT}
+        )},
+        async loyalCustomer(root) { return sequelize.query(
+            "select c.customer_last_name, c.customer_first_name, o.customer_id, count(o.customer_id) as frequency from order_ as o join customer as c on o.customer_id = c.customer_id group by customer_id order by frequency desc limit 500;",
+            {raw: true, type: sequelize.QueryTypes.SELECT}
+        )},
+        async revenueCurrentMonth(root) {return sequelize.query(
+            "select extract(year from order_completed_date) as 'Current_Year', extract(month from order_completed_date) as 'Current_Month', sum(payment_amount) as 'Total_Revenue_this_Month' from order_ where order_status_id=2 AND extract(year from order_completed_date) = year(current_date) AND extract(month from order_completed_date) = month(current_date);",
+            {raw: true, type: sequelize.QueryTypes.SELECT}
+        )},
+        async revenueLastMonth(root) {return sequelize.query(
+            "select extract(year from order_completed_date) as 'Year', extract(month from order_completed_date) as 'Previous_Month', sum(payment_amount) as 'Total_Revenue_in_Previous_Month' from order_ where order_status_id=2 AND extract(year from order_completed_date) = year(current_date - interval 1 month) AND extract(month from order_completed_date) = month(current_date - interval 1 month);",
+            {raw: true, type: sequelize.QueryTypes.SELECT}
+        )}
 
     },
 

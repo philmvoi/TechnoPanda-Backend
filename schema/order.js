@@ -64,10 +64,31 @@ input OrderInput {
     payment_amount: String
 }  
 
+type LoyalCustomer{
+    customer_last_name: String!
+    customer_first_name: String!
+    customer_id: Int!
+    frequency: Int!
+}
+
+type RevenueCurrentMonth {
+    Current_Year: String
+    Current_Month: String
+    Total_Revenue_this_Month: String
+}
+
+type RevenueLastMonth{
+    Year: String!
+    Previous_Month: String!
+    Total_Revenue_in_Previous_Month: String!
+}
 
 type Query {
     getOrder(order_id: Int!): Order!
     allOrders: [OrderReturn]!
+    loyalCustomer: [LoyalCustomer]
+    revenueCurrentMonth: [RevenueCurrentMonth]
+    revenueLastMonth: [RevenueLastMonth]
 }
 
 type Mutation {

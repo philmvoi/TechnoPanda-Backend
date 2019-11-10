@@ -24,10 +24,33 @@ input OrderLineInput{
     price: String
 }
 
+type PopularPackage{
+    package_name: String!
+    frequency: Int!
+}
+
+type UpcomingOrderandPackage {
+    order_id: Int
+    customer_first_name: String
+    customer_last_name: String
+    customer_phone_number: String
+    customer_street_address: String
+    order_due_date: String
+    order_deliver_by: String
+    order_total_price: Float
+    special_requirements: String
+    order_payment_method: String
+    order_fulfillement_method: String
+    plan_type: String
+    package_name: String
+}
+
 type Query {
     getOrderLine(order_line_id: Int!): OrderLine!
     allOrderLine: [OrderLineReturn!]!
     allOrderOrderLines: [OrderLineReturn]
+    popularPackage: [PopularPackage]
+    upcomingOrderandPackage: [UpcomingOrderandPackage!]!
 }
 
 type Mutation {
