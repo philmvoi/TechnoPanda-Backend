@@ -1,7 +1,7 @@
 export default `
 type State {
-    state_id: Int!
-    state_name: String!
+    state_id: Int
+    state_name: String
 }
 
 
@@ -15,5 +15,6 @@ type Query {
 type Mutation {
     createState(state_name: String!): State!
     updateState(state_id: Int, state_name: String): State
+    deleteState(state_id: Int!): State
 }
 `;
