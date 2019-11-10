@@ -2,14 +2,16 @@ export default `
 type MealList {
     meal_list_id: Int
     meal_id: Int
-    package_id: Int
+    order_line_id: Int
     meal_list_quantity: Int
 }
 
 type MealListReturn{
     meal_list_id: Int!
     meal_id: Int!
-    package_id: Int!
+    order_id: Int
+    order_line_id: Int
+    package_id: Int
     package_name: String
     meal_name: String
     meal_list_quantity: String
@@ -17,7 +19,7 @@ type MealListReturn{
 
 input MealListInput{
     meal_id: Int!
-    package_id: Int
+    order_line_id: Int
     meal_list_quantity: String!
 }
 
@@ -27,12 +29,14 @@ type PopularMealReport {
 }
 
 type UpcomingMealInfo{
-    meal_id: Int!
-    package_name: String!
-    package_description: String!
-    meal_name: String!
-    meal_description: String!
-    additional_protein_oz: Int!
+    order_id: Int
+    package_name: String
+    meal_name: String
+    protein_type: String
+    description_: String
+    meal_description: String
+    additional_protein_oz: Int
+    order_due_date: String
 }
 
 type Query {

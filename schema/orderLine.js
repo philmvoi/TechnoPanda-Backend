@@ -34,15 +34,15 @@ type UpcomingOrderandPackage {
     customer_first_name: String
     customer_last_name: String
     customer_phone_number: String
-    customer_street_address: String
     order_due_date: String
-    order_deliver_by: String
+    order_delivery_street: String
+    order_delivery_city: String
+    order_delivery_zipcode: String
     order_total_price: Float
     special_requirements: String
     order_payment_method: String
     order_fulfillement_method: String
     plan_type: String
-    package_name: String
 }
 
 type Query {

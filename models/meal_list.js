@@ -14,12 +14,12 @@ export default (sequelize, DataTypes) => {
         key: 'meal_id'
       }
     },
-    package_id: {
+    order_line_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       references: {
-        model: 'package',
-        key: 'package_id'
+        model: 'order_line',
+        key: 'order_line_id'
       }
     },
     meal_list_quantity: {

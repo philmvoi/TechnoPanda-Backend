@@ -10,15 +10,15 @@ export default {
             {raw: true, type: sequelize.QueryTypes.SELECT}
         )},
         async loyalCustomer(root) { return sequelize.query(
-            "select c.customer_last_name, c.customer_first_name, o.customer_id, count(o.customer_id) as frequency from order_ as o join customer as c on o.customer_id = c.customer_id group by customer_id order by frequency desc limit 500;",
+            "select c.customer_last_name, c.customer_first_name, o.customer_id, count(o.customer_id) as frequency from order_ as o join customer as c on o.customer_id = c.customer_id WHERE customer_status_id = 1 group by customer_id order by frequency desc limit 500;",
             {raw: true, type: sequelize.QueryTypes.SELECT}
         )},
         async revenueCurrentMonth(root) {return sequelize.query(
-            "select extract(year from order_completed_date) as 'Current_Year', extract(month from order_completed_date) as 'Current_Month', sum(payment_amount) as 'Total_Revenue_this_Month' from order_ where order_status_id=2 AND extract(year from order_completed_date) = year(current_date) AND extract(month from order_completed_date) = month(current_date);",
+            "select extract(year from order_completed_date) as 'Current_Year', extract(month from order_completed_date) as 'Current_Month', sum(payment_amount) as 'Total_Revenue_this_Month' from order_ where order_status_id=2 AND extract(year from order_completed_date) = year(current_date) AND extract(month from order_completed_date) = month(current_date) GROUP BY order_completed_date;",
             {raw: true, type: sequelize.QueryTypes.SELECT}
         )},
         async revenueLastMonth(root) {return sequelize.query(
-            "select extract(year from order_completed_date) as 'Year', extract(month from order_completed_date) as 'Previous_Month', sum(payment_amount) as 'Total_Revenue_in_Previous_Month' from order_ where order_status_id=2 AND extract(year from order_completed_date) = year(current_date - interval 1 month) AND extract(month from order_completed_date) = month(current_date - interval 1 month);",
+            "select extract(year from order_completed_date) as 'Year', extract(month from order_completed_date) as 'Previous_Month', sum(payment_amount) as 'Total_Revenue_in_Previous_Month' from order_ where order_status_id=2 AND extract(year from order_completed_date) = year(current_date - interval 1 month) AND extract(month from order_completed_date) = month(current_date - interval 1 month) GROUP BY order_completed_date;",
             {raw: true, type: sequelize.QueryTypes.SELECT}
         )}
 

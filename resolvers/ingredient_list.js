@@ -8,7 +8,7 @@ export default {
             {raw: true, type: sequelize.QueryTypes.SELECT}
         )},
         async popularIngredients(root) {return sequelize.query(
-            "select ingredient_name, count(il.ingredient_id) as frequency from ingredient_list as il join ingredient as i on i.ingredient_id = il.ingredient_id group by il.ingredient_id order by frequency desc limit 500;",
+            "select ingredient_name, count(il.ingredient_id) as frequency from ingredient_list as il join ingredient as i on i.ingredient_id = il.ingredient_id WHERE ingredient_status_id = 2 group by il.ingredient_id order by frequency desc limit 500;",
           {raw: true, type: sequelize.QueryTypes.SELECT}  
         )},
         async upcomingIngredient(root) {return sequelize.query(
