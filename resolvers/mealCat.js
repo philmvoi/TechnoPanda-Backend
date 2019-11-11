@@ -14,5 +14,7 @@ export default {
             });
                 return mealCat;
             },
+        deleteMealCat: (parent, {meal_category_id}, {models}) => models.MealCat.destroy({where: {meal_category_id}}),
+    
     },
 };

@@ -14,5 +14,7 @@ export default {
             });
                 return proType;
             },
+        deleteProType: (parent, {protein_type_id}, {models}) => models.ProType.destroy({where: {protein_type_id}}),
+    
     },
 };

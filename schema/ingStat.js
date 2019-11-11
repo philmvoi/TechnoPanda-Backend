@@ -1,7 +1,7 @@
 export default `
 type IngStat {
-    ingredient_status_id: Int!
-    ingredient_status: String!
+    ingredient_status_id: Int
+    ingredient_status: String
 }
 
 type Query {
@@ -11,6 +11,7 @@ type Query {
 
 type Mutation {
     createIngStat(ingredient_status: String!): IngStat!
-    updateIngStat(ingredient_status_id: Int, ingredient_status: String): IngStat
+    updateIngStat(ingredient_status_id: Int!, ingredient_status: String): IngStat
+    deleteIngStat(ingredient_status_id: Int!): IngStat
 }
 `;

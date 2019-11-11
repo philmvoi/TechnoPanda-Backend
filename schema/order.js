@@ -23,6 +23,7 @@ type OrderReturn {
     order_id: Int
     customer_id: Int
     customer_last_name: String
+    customer_first_name: String
     customer_phone_number: String
     order_status_id: Int
     order_status: String
@@ -42,6 +43,7 @@ type OrderReturn {
     order_total_price: String
     special_requirements: String
     payment_amount: String
+    ol_price: String
     
 
 }
@@ -78,7 +80,7 @@ type RevenueCurrentMonth {
 }
 
 type RevenueLastMonth{
-    Year: String!
+    Prev_Year: String!
     Previous_Month: String!
     Total_Revenue_in_Previous_Month: String!
 }

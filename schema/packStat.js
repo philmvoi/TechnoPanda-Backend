@@ -1,7 +1,7 @@
 export default `
 type PackStat {
-    package_status_id: Int!
-    package_status: String!
+    package_status_id: Int
+    package_status: String
 }
 
 type Query {
@@ -12,5 +12,6 @@ type Query {
 type Mutation {
     createPackStat(package_status: String!): PackStat!
     updatePackStat(package_status_id: Int, package_status: String): PackStat
+    deletePackStat(package_status_id: Int): PackStat
 }
 `;

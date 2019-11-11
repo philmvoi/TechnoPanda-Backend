@@ -1,7 +1,7 @@
 export default `
 type MealCat {
-    meal_category_id: Int!
-    description_: String!
+    meal_category_id: Int
+    description_: String
 }
 
 type Query {
@@ -12,5 +12,6 @@ type Query {
 type Mutation {
     createMealCat(description_: String!): MealCat!
     updateMealCat(meal_category_id: Int, description_: String): MealCat
+    deleteMealCat(meal_category_id: Int): MealCat
 }
 `;

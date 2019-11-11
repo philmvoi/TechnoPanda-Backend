@@ -14,5 +14,7 @@ export default {
             });
                 return packStat;
             },
+            deletePackStat: (parent, {package_status_id}, {models}) => models.PackStat.destroy({where: {package_status_id}}),
+   
     },
 };

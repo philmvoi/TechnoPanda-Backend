@@ -14,5 +14,7 @@ export default {
             });
                 return ingStat;
             },
+        deleteIngStat: (parent, {ingredient_status_id}, {models}) => models.IngStat.destroy({where: {ingredient_status_id}}),
+   
     },
 };
