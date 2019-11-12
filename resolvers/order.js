@@ -10,7 +10,7 @@ export default {
             {raw: true, type: sequelize.QueryTypes.SELECT}
         )},
         async loyalCustomer(root) { return sequelize.query(
-            "select c.customer_last_name, c.customer_first_name, o.customer_id, count(o.customer_id) as frequency from order_ as o join customer as c on o.customer_id = c.customer_id WHERE customer_status_id = 1 group by customer_id order by frequency desc limit 500;",
+            "select c.customer_last_name, c.customer_first_name, o.customer_id, count(o.customer_id) as frequency from order_ as o join customer as c on o.customer_id = c.customer_id WHERE customer_status_id = 2 group by customer_id order by frequency desc limit 500;",
             {raw: true, type: sequelize.QueryTypes.SELECT}
         )},
         async revenueCurrentMonth(root) {return sequelize.query(
