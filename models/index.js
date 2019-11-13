@@ -1,6 +1,6 @@
 import Sequelize from 'sequelize';
 
-export const sequelize = new Sequelize ('technopanda', 'root', 'Quietzone2018!', {
+export const sequelize = new Sequelize ('test_csv3', 'root', 'qpalzm10', {
     dialect: 'mysql',
     define: {
         underscored: true,
