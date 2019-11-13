@@ -78,7 +78,7 @@ export default (sequelize, DataTypes) =>  {
     },
     order_total_price: {
       type: DataTypes.FLOAT,
-      allowNull: false
+      allowNull: true
     },
     special_requirements: {
       type: DataTypes.STRING(255),

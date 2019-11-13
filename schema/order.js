@@ -14,7 +14,6 @@ type Order {
     order_delivery_zipcode: String
     order_completed_date: String
     order_deliver_by: String
-    order_total_price: Float!
     special_requirements: String
     payment_amount: Float
 }
@@ -40,7 +39,6 @@ type OrderReturn {
     order_delivery_zipcode: String
     order_completed_date: String
     order_deliver_by: String
-    order_total_price: String
     special_requirements: String
     payment_amount: String
     ol_price: String
@@ -61,7 +59,6 @@ input OrderInput {
     order_delivery_zipcode: String
     order_completed_date: String
     order_deliver_by: String
-    order_total_price: String
     special_requirements: String
     payment_amount: String
 }  

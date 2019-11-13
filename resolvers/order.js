@@ -39,7 +39,6 @@ export default {
                 order_delivery_zipcode,
                 order_completed_date,
                 order_deliver_by,
-                order_total_price,
                 special_requirements,
                 payment_amount} = input;
 
@@ -57,7 +56,6 @@ export default {
                 order_delivery_zipcode,
                 order_completed_date,
                 order_deliver_by,
-                order_total_price,
                 special_requirements,
                 payment_amount
             });
