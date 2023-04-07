@@ -14,7 +14,7 @@ To launch the server:
 If it runs....Tremendous!!!
 if not hmu
 
-# To test update fubctionality
+# To test update functionality
 
 mutation {
 	updateState(state_id:3, state_name: "iowa") {
