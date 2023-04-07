@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
 
 export const sequelize = new Sequelize ('test_csv3', 'root', 'qpalzm10', {
-    dialect: 'mysql',
+    dialect: 'mysql', //update accordingly
     define: {
         underscored: true,
         freezeTableName: true,
